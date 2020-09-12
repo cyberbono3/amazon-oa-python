@@ -52,7 +52,31 @@ Output: [0,0,1,1,1,1,1,0]
 
 
 """
+class Solution(object):
+    def prisonAfterNDays(self, cells, N):
+        """
+        :type cells: List[int]
+        :type N: int
+        :rtype: List[int]
+        
+        
+                 0 1 2 3 4 5 6 7
+        cells = [0,1,0,1,1,0,0,1], N = 7
+        
+        [0,1,1,1,1,0,0,1]   N = 6
+        
+    
 
+        
+        """
+        while N:
+            N -= 1
+            cells = [0] + [cells[i-1] ^ cells[i+1] ^ 1 for i in range(1,7)] + [0]
+            
+        return cells
+            
+
+    
 
 
 
